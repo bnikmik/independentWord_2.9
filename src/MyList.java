@@ -1,7 +1,26 @@
 public interface MyList<T> {
-    void add(T t); // добавление в конец списка
-    T pop(); // удаляет первый элемент и возвращает его
-    T remove(int index); // удаляет элемент по индексу
-    T get(int index); // получает элемент по индексу
-    int size(); // возвращает размер списка
+    /*
+    add an item to the end of the list
+     */
+    void add(T t);
+
+    /*
+    delete the first element and returns it
+     */
+    T pop();
+
+    /*
+    delete an element by index
+     */
+    T remove(int index);
+
+    /*
+    get an element by index
+     */
+    T get(int index);
+
+    /*
+    returns the size of the list
+     */
+    int size();
 }
