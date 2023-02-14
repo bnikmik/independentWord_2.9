@@ -2,6 +2,7 @@ public class MyLinkedList<T> implements MyList<T> {
     private static class Node<T> {
         T value;
         Node<T> next;
+
         public Node(T value) {
             this.value = value;
         }
@@ -13,6 +14,9 @@ public class MyLinkedList<T> implements MyList<T> {
     public MyLinkedList() {
     }
 
+    /*
+    add an item to the end of the list
+     */
     @Override
     public void add(T t) {
         if (general == null) {
@@ -24,7 +28,10 @@ public class MyLinkedList<T> implements MyList<T> {
         size++;
     }
 
-    private Node<T> req (Node<T> temp) {
+    /*/
+    search for the required node
+     */
+    private Node<T> req(Node<T> temp) {
         if (temp.next != null) {
             temp = temp.next;
             return req(temp);
@@ -33,7 +40,9 @@ public class MyLinkedList<T> implements MyList<T> {
         }
     }
 
-
+    /*
+    delete the first element and returns it
+     */
     @Override
     public T pop() {
         Node<T> tempPop = general;
@@ -42,12 +51,9 @@ public class MyLinkedList<T> implements MyList<T> {
         return tempPop.value;
     }
 
-    private void checkIndex(int index) {
-        if (index < 0 || index >= size) {
-            throw new IllegalArgumentException("Вы задали неверный индекс!!!");
-        }
-    }
-
+    /*
+    delete an element by index
+    */
     @Override
     public T remove(int index) {
         checkIndex(index);
@@ -66,6 +72,18 @@ public class MyLinkedList<T> implements MyList<T> {
         return temp.value;
     }
 
+    /*/
+    Checking for an index
+     */
+    private void checkIndex(int index) {
+        if (index < 0 || index >= size) {
+            throw new IllegalArgumentException("Вы задали неверный индекс!!!");
+        }
+    }
+
+    /*
+    get an element by index
+    */
     @Override
     public T get(int index) {
         checkIndex(index);
@@ -76,6 +94,9 @@ public class MyLinkedList<T> implements MyList<T> {
         return temp.value;
     }
 
+    /*
+    returns the size of the list
+    */
     @Override
     public int size() {
         return size;
